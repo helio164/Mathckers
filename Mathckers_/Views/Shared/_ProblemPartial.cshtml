@@ -1,0 +1,60 @@
+﻿@model Mathckers_.Models.Problem
+
+<div>
+    <h4>Problem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correct_choice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correct_choice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instruction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instruction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.difficulty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.difficulty)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Mathckers_.Models.Attack>
+
+@{
+    ViewBag.Title = "Attacks History";
+}
+
+<h2>Attacks History</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayName("Attacker")
+        </th>
+        <th>
+            @Html.DisplayName("Defender")
+        </th>
+        <th>
+            @Html.DisplayName("Winner")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <small>@Html.DisplayFor(modelItem => item.Attacker.Alias)</small><br />
+            @Html.DisplayFor(modelItem => item.Attacker.User.Email) - <b>XP @Html.DisplayFor(modelItem => item.Attacker.XP)</b>
+        </td>
+        <td>
+            <small>@Html.DisplayFor(modelItem => item.Defender.Alias)</small><br />
+            @Html.DisplayFor(modelItem => item.Defender.User.Email) - <b>XP @Html.DisplayFor(modelItem => item.Defender.XP)</b>
+        </td>
+        <td>
+            @if (!item.Defended)
+            {
+                @Html.DisplayFor(model => item.Attacker.User.Email)
+            }
+            else
+            {
+                @Html.DisplayFor(model => item.Defender.User.Email)
+            }
+        </td>
+    </tr>
+}
+
+</table>

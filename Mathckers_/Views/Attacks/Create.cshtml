@@ -1,0 +1,57 @@
+﻿@model Mathckers_.Models.AttackViewModel
+
+@{
+    ViewBag.Title = "AttackDetails";
+}
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.Answer)
+        @Html.HiddenFor(model => model.Attacker)
+        @Html.HiddenFor(model => model.AttackerID)
+        @Html.HiddenFor(model => model.Defender)
+        @Html.HiddenFor(model => model.DefenderID)
+        @Html.HiddenFor(model => model.ProblemID)
+        @Html.HiddenFor(model => model.Problem.correct_choice)
+        @Html.HiddenFor(model => model.Points)
+        @Html.HiddenFor(model => model.Quest)
+
+
+
+    <h4 class="text-center">Attack on @Html.DisplayFor(model => model.Defender.User.Email)</h4>
+    <hr />
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><h1 class="text-center">@Html.Raw(Model.Problem.question)</h1></div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10"><h2 class="text-center">@Html.Raw(Model.Problem.instruction)</h2></div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row px-auto">
+        <br/>
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><button class="choice btn btn-default btn-lg" value="0">@Html.Raw(Model.Problem.choices[0])</button></div>
+        <div class="col-md-2"><button class="choice btn btn-default btn-lg" value="1">@Html.Raw(Model.Problem.choices[1])</button></div>
+        <div class="col-md-2"><button class="choice btn btn-default btn-lg" value="2">@Html.Raw(Model.Problem.choices[2])</button></div>
+        <div class="col-md-2"><button class="choice btn btn-default btn-lg" value="3">@Html.Raw(Model.Problem.choices[3])</button></div>
+        <div class="col-md-2"><button class="choice btn btn-default btn-lg" value="4">@Html.Raw(Model.Problem.choices[4])</button></div>
+        <div class="col-md-1"></div>
+    </div>
+    }
+</div>
+<script>
+    $(".choice").click(function () {
+        $("#Answer").val($(this).val());
+    });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

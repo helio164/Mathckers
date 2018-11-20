@@ -1,0 +1,34 @@
+﻿@model Mathckers_.Models.Attack
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attack</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Attacker.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attacker.Alias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defender.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defender.Alias)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Mathckers_.Models.Player>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Rank";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rank</h2>
+@foreach (var player in Model)
+            {
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <div class="media">
+                    <h5 class="media-heading mb-1">@Html.DisplayFor(m => player.User.Email)</h5>
+                    <div class="thumbnail pull-left" href="#">
+                        <img class="media-object" src="@Html.DisplayFor(m => player.Avatar.Avatar)" width="70" />
+                    </div>
+                    <div class="media-body">
+                        <p class="pull-left">
+                            <span class="label label-info">XP @Html.DisplayFor(m => player.XP)</span><br />
+                            <span class="label label-warning">@Html.DisplayFor(m => player.Coins) Coins</span>
+                        </p>
+                        <p class="pull-right">
+                            <a href="@Url.Action("Create","Attacks", new { attacker = User.Identity.GetUserId() , defender = player.UserID })" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-screenshot"></span> Attack Player</a>
+                            @*<a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>*@
+                            @*<a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>*@
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

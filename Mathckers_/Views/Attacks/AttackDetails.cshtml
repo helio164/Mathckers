@@ -1,0 +1,37 @@
+﻿@model Mathckers_.Models.AttackViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "AttackDetails";
+}
+
+<div>
+
+    <h4>Attack from @Html.DisplayFor(model => model.Attacker.User.Email) to @Html.DisplayFor(model => model.Defender.User.Email) </h4>
+    <h4>@Html.DisplayFor(model => model.Quest)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Winner")
+        </dt>
+        <dd>
+            @if (!Model.Defended)
+            {
+                @Html.DisplayFor(model => model.Attacker.User.Email)
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Defender.User.Email)
+            }
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Back to Players", "Index", "Players")
+    </p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
